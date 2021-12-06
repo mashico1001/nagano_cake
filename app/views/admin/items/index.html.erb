@@ -1,1 +1,45 @@
 <h1>商品一覧画面だよ</h1>
+<table>
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @items.each do |item| %>
+      <td>
+        <p>
+          <%= item.id %>
+        </p>
+      </td>
+      <td>
+        <p>
+          <%= link_to admin_item_path(item.id) do %>
+          <%= item.name %>
+          <% end %>
+        </p>
+      </td>
+      <td>
+        <p>
+          <%= item.price %>円
+        </p>
+      </td>
+      <td>
+        <p>
+          <%= item.genre_id %>
+        </p>
+      </td>
+      <td>
+        <p>
+          <%= item.is_active %>
+        </p>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

@@ -22,7 +22,7 @@
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
               <li class="nav-item mr-2">
-                <%= link_to '商品一覧', class: 'navbar-link text-dark' %>
+                <%= link_to '商品一覧', admin_items_path, class: 'navbar-link text-dark' %>
               </li>
               <li class="nav-item mr-2">
                 <%= link_to '会員一覧', class: 'navbar-link text-dark' %>
@@ -41,7 +41,7 @@
                 <%= link_to 'About', class: 'navbar-link text-dark' %>
               </li>
               <li class="nav-item mr-2">
-                <%= link_to '商品一覧', class: 'navbar-link text-dark' %>
+                <%= link_to '商品一覧', admin_items_path, class: 'navbar-link text-dark' %>
               </li>
               <li class="nav-item mr-2">
                 <%= link_to '新規登録', class: 'navbar-link text-dark' %>
