@@ -31,12 +31,12 @@
       </td>
       <td>
         <p>
-          <%= item.genre_id %>
+          <%= item.genre.name %>
         </p>
       </td>
       <td>
         <p>
-          <%= item.is_active %>
+          <%= item.is_active ? '販売中' : '売り切れ' %>
         </p>
       </td>
       <% end %>
