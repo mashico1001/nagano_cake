@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  devise_for :customers, module: "public"
+  
   devise_for :admin, controllers: {
     sessions: 'admin/sessions',
     passwords: 'admin/passwords'
@@ -11,7 +13,6 @@ Rails.application.routes.draw do
     
     resources :items, except: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
   
     
   end
