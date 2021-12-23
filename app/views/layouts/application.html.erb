@@ -36,15 +36,19 @@
               <li class="nav-item mr-2">
                 <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'navbar-link text-dark' %>
               </li>
+              <% elseif customer_signed_in? %>
+              <li class="nav-item mr-2">
+                <%= link_to 
+              </li>
               <% else %>
               <li class="nav-item mr-2">
-                <%= link_to 'About', class: 'navbar-link text-dark' %>
+                <%= link_to 'About', about_path, class: 'navbar-link text-dark' %>
               </li>
               <li class="nav-item mr-2">
                 <%= link_to '商品一覧', admin_items_path, class: 'navbar-link text-dark' %>
               </li>
               <li class="nav-item mr-2">
-                <%= link_to '新規登録', class: 'navbar-link text-dark' %>
+                <%= link_to '新規登録', new_customer_registration_path, class: 'navbar-link text-dark' %>
               </li>
               <li class="nav-item mr-2">
                 <%= link_to 'ログイン', new_admin_session_path, class: 'navbar-link text-dark' %>
@@ -58,5 +62,12 @@
       </nav>
     </header>
     <%= yield %>
+   
+  <footer>  
+   <div class="container">
+     <div class="footer" style="height:50px; ">
+       
+   </div>
+  </footer>
   </body>
 </html>
