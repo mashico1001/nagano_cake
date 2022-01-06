@@ -9,8 +9,8 @@
     </tr>
   </thead>
   <tbody>
+    <% @customers.each do |customer| %>
     <tr>
-      <% @customers.each do |customer| %>
       <td>
         <p>
           <%= customer.id %>
@@ -30,10 +30,10 @@
       </td>
       <td>
         <p>
-          <%= customer.id_active ? '有効' : '退会' %>
+          <%= customer.is_active ? '退会' : '有効' %>
         </p>
       </td>
-      <% end %>
     </tr>
+    <% end %>
   </tbody>
 </table>

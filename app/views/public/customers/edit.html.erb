@@ -1,18 +1,11 @@
 <div class="container">
   <div class="row">
     <p class="mt-5 mb-3 col-sm-5 offset-md-2">
-      <span class="title-background-color">　<%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集　</span></p>
+      <span class="title-background-color">登録情報編集</span></p>
     
-<%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
+<%= form_with model: @customer, url: customers_path, local: true do |f| %>
   </div>
-  <div class="row mb-3">
-    <div class="col-sm-4 ml-auto">
-      会員ID
-    </div>
-    <div class="col-sm-6 mr-auto">
-      <%= @customer.id %>
-    </div>
-  </div>
+  
   <div class="form-inline row mb-3">
     <div class="col-sm-4 col-form-label">
       <%= f.label "氏名" %>
@@ -67,17 +60,14 @@
     <%= f.email_field :email, class: "form-control" %>
     </div>
   </div>
-  <div class="row mb-3">
-        <%= f.label :is_active, "ステータス", class: "col-sm-2 col-form-label" %>
-        <div class="col-sm-7">
-        <%= f.radio_button :is_active, :false, checked: false %>
-        <%= f.label :is_active, "有効", {value: :false, style: "display: inline-block;"} %>
-        <%= f.radio_button :is_active, :true %>
-        <%= f.label :is_active, "退会", {value: :true, style: "display: inline-block;"} %>
-        </div>
-      </div>
 
-  <div class="actions">
-    <%= f.submit "変更を保存", class: 'btn btn-success' %>
+  <div class="actions row offset-md-4">
+    <div class="col-sm-6">
+    <%= f.submit "編集内容を保存", class: 'btn btn-success' %>
+    </div>
+    <div class="col-sm-6">
+    <%= link_to "退会する", customers_unsubscribe_path, class: 'btn btn-danger' %>
+    </div>
   </div>
+  
 <% end %>
