@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <h4>ショッピングカート</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td>
+              <%= attachment_image_tag cart_item.item, :image, :fill, 35, 30, fallback: "images.png" %>
+              <%= cart_item.item.name %>
+            </td>
+            <td>
+              <%= cart_item.item.with_tax_price.to_s(:delimited) %>
+            </td>
+            <td>
+              <%= cart_item.amount %>
+            </td>
+            <td>
+              <%= cart_item.subtotal.to_s(:delimited) %>
+            </td>
+              <% @total_price += cart_item.subtotal %>
+          </tr>
+          <% end %> 
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 ml-auto">
+        <table class="table table-bordered">
+          <tr><th>合計金額</th><td><%= @total_price.to_s(:delimited) %></td></tr>
+        </table>
+    </div>
+  </div>
+</div>

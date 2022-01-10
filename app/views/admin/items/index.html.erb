@@ -36,7 +36,11 @@
       </td>
       <td>
         <p>
-          <%= item.is_active ? '販売中' : '売り切れ' %>
+          <% if item.is_active == true %>
+          <p class="font-weight-bold text-success">販売中</p>
+          <% else %>
+          <p class="font-weight-bold text-black-50">売り切れ</p>
+          <% end %>
         </p>
       </td>
       <% end %>

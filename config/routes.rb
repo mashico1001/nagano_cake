@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     post '/orders/confirm' => "orders#confirm"
     get '/orders/thanks' => "orders#thanks"
     
+    resources :items, only: [:index, :show]
+    
     devise_for :customers, controllers: {
       sessions: 'public/customers/sessions',
       passwords: 'public/customers/passwords',

@@ -2,9 +2,9 @@
   <div class="row">
     <p class="mt-5 mb-3 col-sm-5 offset-md-2">
       <span class="title-background-color">　<%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集　</span></p>
+  </div>
     
 <%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
-  </div>
   <div class="row mb-3">
     <div class="col-sm-4 ml-auto">
       会員ID
@@ -70,10 +70,10 @@
   <div class="row mb-3">
         <%= f.label :is_active, "ステータス", class: "col-sm-2 col-form-label" %>
         <div class="col-sm-7">
-        <%= f.radio_button :is_active, :false, checked: false %>
-        <%= f.label :is_active, "有効", {value: :false, style: "display: inline-block;"} %>
-        <%= f.radio_button :is_active, :true %>
-        <%= f.label :is_active, "退会", {value: :true, style: "display: inline-block;"} %>
+        <%= f.radio_button :is_active, :true, checked: true %>
+        <%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
+        <%= f.radio_button :is_active, :false %>
+        <%= f.label :is_active, "退会", {value: :false, style: "display: inline-block;"} %>
         </div>
       </div>
 

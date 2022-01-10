@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h3 class="my-5">ジャンル検索</h3>
+    </div>
+    <div class="col-4">
+      <%= attachment_image_tag @item, :image, :fill, 300, 200, fallback: "images.png", class: "mt-5" %>
+    </div>
+    <div class="col-5">
+      <p class="h4 mt-5 mb-3 font-weight-bold"><%= @item.name %></p>
+      <p class="h5 mb-5"><%= @item.introduction %></p>
+      <p class="mb-5">
+      <span class="h4">￥<%= @item.with_tax_price.to_s(:delimited) %></span><span class="small">（税込）</span>
+      </p>
+      <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.select :amount, *[1..10] ,include_blank: "個数選択"%>
+          <%= f.submit "カートに追加する", class: "btn btn-success" %>
+      <% end %>
+  </div>
+</div>
