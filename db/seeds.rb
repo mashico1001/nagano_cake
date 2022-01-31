@@ -10,3 +10,5 @@ Admin.create!(
     email: 'admin@admin.com',
     password: '12345678',
   )
+  
+Order.create!(postage: '800')

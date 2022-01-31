@@ -10,16 +10,17 @@ Rails.application.routes.draw do
     get '/customers/unsubscribe' => "customers#unsubscribe"
     patch '/customers/withdraw' => "customers#withdraw"
     
+    delete '/cart_items/destroy_all' => "cart_items#destroy_all"
+    
     resources :cart_items, only: [:index, :update, :destroy, :create]
     
-    delete '/cart_items/destroy_all' => "cart_items#destroy_all"
     
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     
-    resources :orders, only: [:index, :new, :create, :show]
     
     post '/orders/confirm' => "orders#confirm"
     get '/orders/thanks' => "orders#thanks"
+    resources :orders, only: [:index, :new, :create, :show]
     
     resources :items, only: [:index, :show]
     
@@ -42,11 +43,15 @@ Rails.application.routes.draw do
     
     
     resources :items, except: [:destroy]
+    get '/items/search' => "items#search"
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only:[:update]
   
     
   end
+  
   
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

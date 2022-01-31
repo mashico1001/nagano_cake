@@ -1,49 +1,46 @@
-<h1>商品一覧画面だよ</h1>
-<table>
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <% @items.each do |item| %>
-      <td>
-        <p>
-          <%= item.id %>
-        </p>
-      </td>
-      <td>
-        <p>
-          <%= link_to admin_item_path(item.id) do %>
-          <%= item.name %>
+<div class="container">
+  <div class="row">
+    <div class="col-10 my-3 mx-auto">
+    <h4>商品一覧画面</h4>
+    <p></p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+            <td>
+                <%= item.id %>
+            </td>
+            <td>
+                <%= link_to admin_item_path(item.id) do %>
+                <%= item.name %>
+                <% end %>
+            </td>
+            <td>
+                <%= item.price %>円
+            </td>
+            <td>
+                <%= item.genre.name %>
+            </td>
+            <td>
+                <% if item.is_active == true %>
+                <div class="font-weight-bold text-success">販売中</div>
+                <% else %>
+                <div class="font-weight-bold text-black-50">売り切れ</div>
+                <% end %>
+            </td>
+          </tr>
           <% end %>
-        </p>
-      </td>
-      <td>
-        <p>
-          <%= item.price %>円
-        </p>
-      </td>
-      <td>
-        <p>
-          <%= item.genre.name %>
-        </p>
-      </td>
-      <td>
-        <p>
-          <% if item.is_active == true %>
-          <p class="font-weight-bold text-success">販売中</p>
-          <% else %>
-          <p class="font-weight-bold text-black-50">売り切れ</p>
-          <% end %>
-        </p>
-      </td>
-      <% end %>
-    </tr>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
