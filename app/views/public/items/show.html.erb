@@ -1,7 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <h3 class="my-5">ジャンル検索</h3>
+      <h3 class="my-3">ジャンル検索</h3>
+      <%= form_with url:items_path, method: :get, local: true do |f| %>
+        <% @genres.each do |genre| %>
+          <%= link_to genre.name, items_path(name: genre.id) %><br/>
+        <% end %>
+      <% end %>
+      <div class="my-3">
+        <%= link_to "全ての商品", items_path %>
+      </div>
     </div>
     <div class="col-4">
       <%= attachment_image_tag @item, :image, :fill, 300, 200, fallback: "images.png", class: "mt-5" %>
