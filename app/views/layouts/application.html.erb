@@ -67,7 +67,7 @@
               </li>
               <% end %>
             </ul>
-                <div class="offset-md-6">
+                <div class="offset-md-6 my-3">
                   <%= form_with url: items_path, local: true, method: :get do |f| %>
                     <%= f.text_field :search %>
                     <%= f.submit "Search", :name => nil %>

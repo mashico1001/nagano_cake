@@ -6,3 +6,23 @@
 .title {
   text-align: center;
 }
+
+.top-image {
+  position: relative;
+}
+
+.top-text {
+  position: absolute;
+  with: 600px;
+  height: 100px;
+  padding: 20px 50px 120px 100px;
+  top: 30%;
+  left: 20%;
+  background-color: rgba(255,255,255,0.7);
+  
+  .top-text p {
+    // position: absolute;
+    color: black;
+    
+  }
+}
