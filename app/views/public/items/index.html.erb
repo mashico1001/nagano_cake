@@ -14,7 +14,7 @@
     </div>
     <div class="col-9">
 
-      <h3 class="my-3">商品一覧</h3>
+      <h3 class="my-3">商品一覧　<small>（全<%= @items.count %>件）</small></h3>
       <div class="d-flex flex-ms-row flex-wrap">
       <% @items.each do |item| %>
         <div class="mr-2">
@@ -26,6 +26,9 @@
         </div>
       <% end %>
       </div>
+        <div class="my-3">
+        <%= paginate @items %>
+        </div>
     </div>
   </div>
 </div>

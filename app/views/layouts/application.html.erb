@@ -14,7 +14,11 @@
     <header class="shadow">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <h2 class="mr-4">ながのCAKE</h2>
+          <h2 class="mr-4">
+            <%= link_to root_path do %>
+            ながのCAKE
+            <% end %>
+            </h2>
           <% if customer_signed_in? %>
             ようこそ！<%= current_customer.last_name %><%= current_customer.first_name %>さん！
           <% end %>
