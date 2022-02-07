@@ -1,73 +1,39 @@
 <div class="container">
   <div class="row">
-    <p class="mt-5 mb-3 col-sm-5 offset-md-2">
-      <span class="title-background-color">登録情報編集</span></p>
-    
-<%= form_with model: @customer, url: customers_path, local: true do |f| %>
+    <div class="col-auto my-3 title-background-color">登録情報編集</div>
   </div>
-  
-  <div class="form-inline row mb-3">
-    <div class="col-sm-4 col-form-label">
-      <%= f.label "氏名" %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.text_field :last_name, autofocus: true, class: "form-control" %>　
-      <%= f.text_field :first_name, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-inline row mb-3">
-    <div class="col-sm-4 col-form-label">
-      <%= f.label "フリガナ" %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.text_field :last_name_kana, class: "form-control" %>　
-      <%= f.text_field :first_name_kana, class: "form-control" %>
-    </div>
-  </div>
-  
-  <div class="row mb-3">
-    <div class="col-sm-4 col-form-label">
-      <%= f.label "郵便番号" %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.text_field :postal_code, class: "form-control" %>
-    </div>
-  </div>
-  
-  <div class="row mb-3">
-    <div class="col-sm-4 col-form-label">
-      <%= f.label "住所" %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.text_field :address, class: "form-control" %>
+  <div class="row">
+    <div class="col-10">
+      <table class="table table-borderless">
+      <%= form_with model: @customer, url: customers_path, local: true do |f| %>
+        <tr>
+          <th>氏名</th>
+          <td>
+            <div class="form-inline">
+              <%= f.text_field :last_name, autofocus: true, class: "form-control" %>　
+              <%= f.text_field :first_name, class: "form-control" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+          <td>
+            <div class="form-inline">
+            <%= f.text_field :last_name_kana, class: "form-control" %>　
+            <%= f.text_field :first_name_kana, class: "form-control" %>
+            </div>
+          </td>
+        </tr>
+        <tr><th>郵便番号</th><td><%= f.text_field :postal_code, class: "form-control" %></td></tr>
+        <tr><th>住所</th><td><%= f.text_field :address, class: "form-control" %></td></tr>
+        <tr><th>電話番号</th><td><%= f.text_field :telephone_number, class: "form-control" %></td></tr>  
+        <tr><th>メールアドレス</th><td><%= f.email_field :email, class: "form-control" %></td></tr>
+        <tr><th></th><td><%= f.submit "編集内容を保存", class: 'btn btn-success' %>
+                         <%= link_to "退会する", customers_unsubscribe_path, class: 'btn btn-danger' %></td></tr>
+      <% end %>
+      </table>
     </div>
   </div>
   
-  <div class="row mb-3">
-    <div class="col-sm-4 col-form-label">
-      <%= f.label "電話番号" %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.text_field :telephone_number, class: "form-control" %>
-    </div>
-  </div>
   
-  <div class="row mb-3">
-    <div class="col-sm-4 col-form-label">
-      <%= f.label :email, "メールアドレス" %>
-    </div>
-    <div class="col-sm-6">
-    <%= f.email_field :email, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="actions row offset-md-4">
-    <div class="col-sm-6">
-    <%= f.submit "編集内容を保存", class: 'btn btn-success' %>
-    </div>
-    <div class="col-sm-6">
-    <%= link_to "退会する", customers_unsubscribe_path, class: 'btn btn-danger' %>
-    </div>
-  </div>
   
-<% end %>
