@@ -15,7 +15,7 @@ ja:
         not_startable: '着手不可'
         waiting_for_production: '製作待ち'
         making: '製作中'
-        completed: '製作'
+        completed: '製作完了'
         
         
  

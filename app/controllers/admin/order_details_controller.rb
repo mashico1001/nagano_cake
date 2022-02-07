@@ -1,10 +1,23 @@
 class Admin::OrderDetailsController < ApplicationController
   
   def update
-    @order = Order.find(params[:id])
     @order_detail = OrderDetail.find(params[:id])
+    @order = @order_detail.order
     @order_detail.update(order_detail_params)
+    
+    
+   
+      
+    if @order_detail.making_status == "making"
+        @order.update(order_status: "production")
+      
+    elsif @order.order_details.count == @order.order_details.where(making_status: "completed").count
+            @order.update(order_status: "preparing")
+    end
+      
+      
     redirect_to admin_order_path(@order)
+    
   end
   
   private
